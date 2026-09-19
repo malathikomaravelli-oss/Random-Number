@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random App</title>
+</head>
+
+<body>
+
+    <h1>Random Number Generator</h1>
+
+    <h2 id="number">0</h2>
+
+    <button onclick="changeNumber()">Click Me</button>
+
+    <script>
+        let clickCount = 0;
+        let interval;
+
+        function randomNumber() {
+            let num = Math.floor(Math.random() * 100);
+            document.getElementById("number").innerHTML = num;
+        }
+
+        function changeNumber() {
+            clickCount++;
+
+            if (clickCount % 2 == 1) {
+                clearInterval(interval);
+            } 
+            else {
+                interval = setInterval(randomNumber, 500);
+            }
+        }
+
+        interval = setInterval(randomNumber, 500);
+    </script>
+
+</body>
+</html>
